@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="/Image/graduated_3135755.png" type="image/icon type">
+    <title>Login From</title>
+    <style>
+body{
+    background-color: rgb(189, 187, 184);
+}
+#deb{
+    background-color: rgb(39, 35, 35);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+
+}
+
+h1 {
+    text-shadow: 2px 2px 5px red;
+}
+          
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid rgb(90, 80, 80);}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+img{
+    max-width: 300px;
+
+}
+.error{
+  color: red;
+
+}
+
+.success{
+  color: green;
+
+}
+.own{
+  color: darkgrey;
+  opacity: 0.9;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  
+}
+    </style>
+</head>
+<body>
+<!-- div -->
+
+<div class="shadow-lg p-3 mb-5" id="deb">
+    <h1 class="display-1 text-center text-warning">Wel-Come</h1>
+</div>
+
+
+<!-- User Info -->
+{% if messages %} {% for mess in messages %} <p class="{{mess.tags}} text-center h1">{{mess}}</p> {% endfor %}{% endif %}
+<!-- form -->
+  <form method="POST" novalidate>{% csrf_token %}
+  <div class="imgcontainer">
+    <img src="{% static 'image/im.png' %}" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="floatingInput"><b>Username</b></label>
+    <input class="form-control" type="text" placeholder="Enter Username" name="username" id="floatingInput" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" class="form-control" placeholder="Enter Password" name="password" required>
+    <div class="text-center">
+        <button type="submit"  class="btn btn-outline-primary ">Login</button>
+    </div>
+  </div>
+
+</form>
+
+
+<h5 class="own">@Page Create By: Nerov Ahmead</h5>
+
+</body>
+</html>
