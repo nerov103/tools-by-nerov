@@ -12,8 +12,9 @@ def github():
     step_0 = "git init"
     step_1 = "git add ."
     step_2 = f"git commit -m {commit_mess}" #enter your commit meassge
-    step_3 = f"git remote add origin {repo_url}" #enter your reponame
-    step_4 = "git push -u -f origin master"
+    step_3 = "git branch -M main"
+    step_4 = f"git remote add origin {repo_url}" #enter your reponame
+    step_5 = "git push -u -f origin main"
 
     clik = pyautogui.moveTo(800, 1000)
     pyautogui.click(clik)
@@ -47,13 +48,15 @@ def github():
     #         pyautogui.write(step_3)
     #         pyautogui.press('enter')
     #         time.sleep(0.5)
-
-
-    pyautogui.write(step_3)
+    pyautogui.write()
     pyautogui.press('enter')
     time.sleep(0.5)
 
     pyautogui.write(step_4)
+    pyautogui.press('enter')
+    time.sleep(0.5)
+
+    pyautogui.write(step_5)
     pyautogui.press('enter')
     time.sleep(0.5)
 
