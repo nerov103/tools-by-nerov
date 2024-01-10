@@ -35,8 +35,8 @@ time.sleep(0.5)
 pyautogui.write(step_2)
 pyautogui.press('enter')
 time.sleep(0.5)
-    # print(" plaess double quotation marks "" in the commit meassge")
 
+    # print(" plaess double quotation marks "" in the commit meassge")
     #eror handler in exists repo
     # root_path = "/home/backbox/For BackBox/Pyautogui/.git/config"
     # with open(os.path.join(root_path), 'r') as f:
@@ -47,6 +47,7 @@ time.sleep(0.5)
     #         pyautogui.write(step_3)
     #         pyautogui.press('enter')
     #         time.sleep(0.5)
+
 pyautogui.write(step_3)
 pyautogui.press('enter')
 time.sleep(0.5)
