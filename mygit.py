@@ -13,7 +13,7 @@ def github():
     step_1 = "git add ."
     step_2 = f"git commit -m {commit_mess}" #enter your commit meassge
     step_3 = f"git remote add origin {repo_url}" #enter your reponame
-    step_4 = "git push -u -f origin -M main"
+    step_4 = "git push -u -f origin master"
 
     clik = pyautogui.moveTo(800, 1000)
     pyautogui.click(clik)
