@@ -48,7 +48,7 @@ def github():
     #         pyautogui.write(step_3)
     #         pyautogui.press('enter')
     #         time.sleep(0.5)
-    pyautogui.write()
+    pyautogui.write(step_3)
     pyautogui.press('enter')
     time.sleep(0.5)
 
