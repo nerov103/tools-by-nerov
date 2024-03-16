@@ -34,6 +34,4 @@ listenr = back("enter your ip", 8080)
 listenr.run()
 
 
-
-
-
+#all code write by mr.pydor
